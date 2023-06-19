@@ -3,12 +3,12 @@
 # Copyright (C) 2021-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="vulkan-tools"
-PKG_VERSION="1.3.250"
-PKG_SHA256="a1cd4f7d8d58bec26efb1e5ea73f82dcf36a9662d55401b81a783071b211a35a"
+PKG_VERSION="1.3.254"
+PKG_SHA256="9d46697d0df39e20950db2f8581b63b3d02ab5dce6b67777b9f7bdf876ae4921"
 PKG_LICENSE="Apache-2.0"
 PKG_SITE="https://github.com/KhronosGroup/Vulkan-Tools"
 PKG_URL="https://github.com/KhronosGroup/Vulkan-tools/archive/v${PKG_VERSION}.tar.gz"
-PKG_DEPENDS_TARGET="toolchain vulkan-loader glslang:host"
+PKG_DEPENDS_TARGET="toolchain vulkan-loader glslang:host Python3:host"
 PKG_LONGDESC="This project provides Khronos official Vulkan Tools and Utilities."
 
 configure_package() {
@@ -26,6 +26,7 @@ pre_configure_target() {
                          -DBUILD_ICD=OFF \
                          -DINSTALL_ICD=OFF \
                          -DBUILD_WSI_DIRECTFB_SUPPORT=OFF \
+                         -DPython3_EXECUTABLE=${TOOLCHAIN}/bin/python3 \
                          -Wno-dev"
 
   if [ "${DISPLAYSERVER}" = "x11" ]; then

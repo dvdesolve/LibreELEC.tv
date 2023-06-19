@@ -23,14 +23,14 @@ case "${LINUX}" in
     PKG_PATCH_DIRS="default"
     ;;
   raspberrypi)
-    PKG_VERSION="83cf6b410113c98ebfd0b7fef70b1a7c9539b0b9" # 6.1.27
-    PKG_SHA256="be28f607f945ee7083af61608f29ced824db87fc7b49bff4e4c7d64ca8581935"
+    PKG_VERSION="a72a720bfd4d2093ce9e51239cd7067dd060ff81" # 6.1.34
+    PKG_SHA256="3acaf74f06c04c5727e8d917251b40e5378303b9e2fc62eca81f362857c1db70"
     PKG_URL="https://github.com/raspberrypi/linux/archive/${PKG_VERSION}.tar.gz"
     PKG_SOURCE_NAME="linux-${LINUX}-${PKG_VERSION}.tar.gz"
     ;;
   *)
-    PKG_VERSION="6.3.2"
-    PKG_SHA256="b612ecf282ca3f7989ff6d9f39082833b7dc2d522cb969a05334d3614e9c5328"
+    PKG_VERSION="6.3.8"
+    PKG_SHA256="4323d421250e2e444c35d36f4aa8ddb56591dedc25c68d359d19c4ef9dd20955"
     PKG_URL="https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz"
     PKG_PATCH_DIRS="default"
     ;;
@@ -172,7 +172,13 @@ pre_make_target() {
   fi
 
   kernel_make listnewconfig
-  yes "" | kernel_make oldconfig > /dev/null
+  if [ "${INTERACTIVE_CONFIG}" = "yes" ]; then
+    # manually answer .config changes
+    kernel_make oldconfig
+  else
+    # accept default answers for .config changes
+    yes "" | kernel_make oldconfig > /dev/null
+  fi
 
   if [ -f "${DISTRO_DIR}/${DISTRO}/kernel_options" ]; then
     while read OPTION; do
