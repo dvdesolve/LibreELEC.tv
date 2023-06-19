@@ -8,8 +8,8 @@ PKG_SHA256="c3e5a708da797b7c70b653d37b1206a000fcb503b85519fe4cdf6353f792bfe5"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv2+"
 PKG_SITE="https://github.com/networkupstools/nut"
-PKG_URL="https://github.com/networkupstools/${PKG_NAME}/releases/download/v${PKG_VERSION}/nut-${PKG_VERSION}.tar.gz"
-PKG_MAINTAINER="Viktor Drobot <linux776@gmail.com> (dvdesolve)"
+PKG_URL="https://github.com/networkupstools/nut/releases/download/v${PKG_VERSION}/nut-${PKG_VERSION}.tar.gz"
+PKG_MAINTAINER="Viktor Drobot <linux776 [at] gmail.com> (dvdesolve)"
 PKG_DEPENDS_TARGET="toolchain glibc libtool libusb-compat systemd"
 PKG_LONGDESC="A collection of programs which provide a common interface for monitoring and administering UPS, PDU and SCD hardware"
 
@@ -27,7 +27,7 @@ PKG_CONFIGURE_OPTS_TARGET="--prefix=/storage/.kodi/addons/${PKG_ADDON_ID} \
                           --with-user=nut \
                           --with-group=nut \
                           --with-altpidpath=/run/nut \
-                          --with-drvpath=/usr/lib/nut \
+                          --with-drvpath=/storage/.kodi/addons/${PKG_ADDON_ID}/lib \
                           --with-pidpath=/run/nut \
                           --with-statepath=/var/lib/nut \
                           --with-systemdsystemunitdir=/storage/.kodi/addons/${PKG_ADDON_ID}/lib/systemd/system \
