@@ -52,6 +52,5 @@ addon() {
   cp -r ${PKG_INSTALL}/storage/.kodi/addons/${PKG_ADDON_ID}/bin ${PKG_INSTALL}/storage/.kodi/addons/${PKG_ADDON_ID}/lib ${PKG_INSTALL}/storage/.kodi/addons/${PKG_ADDON_ID}/share ${ADDON_BUILD}/${PKG_ADDON_ID}/
   cp -r ${PKG_INSTALL}/storage/.kodi/addons/${PKG_ADDON_ID}/config ${ADDON_BUILD}/${PKG_ADDON_ID}/
 
-  install -Dm 644 ${PKG_DIR}/nut.sysusers ${PKG_INSTALL}/storage/.config/sysusers.d/nut.conf
-  install -Dm 644 ${PKG_DIR}/nut.tmpfiles ${PKG_INSTALL}/storage/.config/tmpfiles.d/nut.conf
+  install -Dm 644 ${PKG_DIR}/nut.tmpfiles ${ADDON_BUILD}/${PKG_ADDON_ID}/usr/lib/tmpfiles.d/nut.conf
 }
