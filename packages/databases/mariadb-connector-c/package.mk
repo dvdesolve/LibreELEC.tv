@@ -2,8 +2,8 @@
 # Copyright (C) 2018-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="mariadb-connector-c"
-PKG_VERSION="3.3.5"
-PKG_SHA256="c0fda1fa6e52dc85de27156cd847088a72d40d9de6514f7efa57c8d93134a54c"
+PKG_VERSION="3.4.0"
+PKG_SHA256="23efc2da9c50d71dc0bb4f25c07f9437d5b8e2b0cbd529091a83d00ccf3f6d20"
 PKG_LICENSE="LGPL"
 PKG_SITE="https://mariadb.org/"
 PKG_URL="https://github.com/mariadb-corporation/mariadb-connector-c/archive/v${PKG_VERSION}.tar.gz"
@@ -16,6 +16,7 @@ PKG_CMAKE_OPTS_TARGET="-DWITH_EXTERNAL_ZLIB=ON
                        -DCLIENT_PLUGIN_MYSQL_CLEAR_PASSWORD=STATIC
                        -DCLIENT_PLUGIN_MYSQL_OLD_PASSWORD=STATIC
                        -DCLIENT_PLUGIN_REMOTE_IO=OFF
+                       -DDEFAULT_SSL_VERIFY_SERVER_CERT=OFF
                       "
 
 post_makeinstall_target() {

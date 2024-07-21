@@ -8,7 +8,7 @@ PKG_SHA256="c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f"
 PKG_LICENSE="GPL"
 PKG_SITE="http://avahi.org/"
 PKG_URL="https://github.com/lathiat/avahi/archive/v${PKG_VERSION}.tar.gz"
-PKG_DEPENDS_TARGET="toolchain expat libdaemon dbus connman gettext"
+PKG_DEPENDS_TARGET="autotools:host gcc:host expat libdaemon dbus connman gettext"
 PKG_LONGDESC="Service Discovery for Linux using mDNS/DNS-SD, compatible with Bonjour."
 PKG_TOOLCHAIN="configure"
 
@@ -93,8 +93,8 @@ post_makeinstall_target() {
 }
 
 post_install() {
-  add_user avahi x 495 495 "avahi-daemon" "/var/run/avahi-daemon" "/bin/sh"
-  add_group avahi 495
+  add_user avahi x 70 70 "avahi-daemon" "/var/run/avahi-daemon" "/bin/sh"
+  add_group avahi 70
 
   enable_service avahi-defaults.service
   enable_service avahi-daemon.service

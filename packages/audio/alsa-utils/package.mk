@@ -3,8 +3,8 @@
 # Copyright (C) 2016-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="alsa-utils"
-PKG_VERSION="1.2.9"
-PKG_SHA256="e7623d4525595f92e11ce25ee9a97f2040a14c6e4dcd027aa96e06cbce7817bd"
+PKG_VERSION="1.2.12"
+PKG_SHA256="98bc6677d0c0074006679051822324a0ab0879aea558a8f68b511780d30cd924"
 PKG_LICENSE="GPL"
 PKG_SITE="https://www.alsa-project.org/"
 PKG_URL="https://www.alsa-project.org/files/pub/utils/alsa-utils-${PKG_VERSION}.tar.bz2"
@@ -20,6 +20,10 @@ PKG_CONFIGURE_OPTS_TARGET="--disable-alsaconf \
                            --disable-nls \
                            --disable-rst2man \
                            --disable-xmlto"
+
+post_configure_target() {
+  libtool_remove_rpath libtool
+}
 
 post_makeinstall_target() {
   rm -rf ${INSTALL}/lib ${INSTALL}/var

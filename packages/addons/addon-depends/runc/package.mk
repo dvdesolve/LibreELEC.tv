@@ -3,8 +3,8 @@
 # Copyright (C) 2016-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="runc"
-PKG_VERSION="1.1.7"
-PKG_SHA256="f1885d6dfa188f8112328ac2355e5d67346174a2e2e795ec514a972bcbfcc2fa"
+PKG_VERSION="1.1.13"
+PKG_SHA256="789d5749a08ef1fbe5d1999b67883206a68a4e58e6ca0151c411d678f3480b25"
 PKG_LICENSE="APL"
 PKG_SITE="https://github.com/opencontainers/runc"
 PKG_URL="https://github.com/opencontainers/runc/archive/v${PKG_VERSION}.tar.gz"
@@ -13,7 +13,7 @@ PKG_LONGDESC="A CLI tool for spawning and running containers according to the OC
 PKG_TOOLCHAIN="manual"
 
 # Git commit of the matching release https://github.com/opencontainers/runc/releases
-PKG_GIT_COMMIT="6724737f999df9ee0d8ca5c6d7b81f97adc34374"
+export PKG_GIT_COMMIT="58aa9203c123022138b22cf96540c284876a7910"
 
 pre_make_target() {
   go_configure

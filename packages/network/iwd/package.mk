@@ -2,12 +2,12 @@
 # Copyright (C) 2018-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="iwd"
-PKG_VERSION="2.5"
-PKG_SHA256="3441effed58297b63779e706c74884234acb874b07872f8b55e0da28729fda32"
+PKG_VERSION="2.19"
+PKG_SHA256="9d0b934e51580316919796aa0357590971fc0df244b273fa10e154c268374f91"
 PKG_LICENSE="GPL"
 PKG_SITE="https://git.kernel.org/cgit/network/wireless/iwd.git/about/"
 PKG_URL="https://www.kernel.org/pub/linux/network/wireless/iwd-${PKG_VERSION}.tar.xz"
-PKG_DEPENDS_TARGET="toolchain readline dbus"
+PKG_DEPENDS_TARGET="autotools:host gcc:host readline dbus"
 PKG_LONGDESC="Wireless daemon for Linux"
 PKG_TOOLCHAIN="autotools"
 

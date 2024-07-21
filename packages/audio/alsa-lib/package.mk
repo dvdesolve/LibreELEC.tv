@@ -3,8 +3,8 @@
 # Copyright (C) 2016-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="alsa-lib"
-PKG_VERSION="1.2.9"
-PKG_SHA256="dc9c643fdc4ccfd0572cc685858dd41e08afb583f30460b317e4188275f615b2"
+PKG_VERSION="1.2.12"
+PKG_SHA256="4868cd908627279da5a634f468701625be8cc251d84262c7e5b6a218391ad0d2"
 PKG_LICENSE="GPL"
 PKG_SITE="https://www.alsa-project.org/"
 PKG_URL="https://www.alsa-project.org/files/pub/lib/alsa-lib-${PKG_VERSION}.tar.bz2"
@@ -21,6 +21,7 @@ fi
 
 PKG_CONFIGURE_OPTS_TARGET="${PKG_ALSA_DEBUG} \
                            --disable-dependency-tracking \
+                           --disable-largefile \
                            --with-plugindir=/usr/lib/alsa \
                            --disable-python"
 

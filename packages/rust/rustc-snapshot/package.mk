@@ -3,9 +3,23 @@
 
 PKG_NAME="rustc-snapshot"
 PKG_VERSION="$(get_pkg_version rust)"
-PKG_SHA256="7d891d3e9bc4f1151545c83cbe3bc6af9ed234388c45ca2e19641262f48615e2"
 PKG_LICENSE="MIT"
 PKG_SITE="https://www.rust-lang.org"
-PKG_URL="https://static.rust-lang.org/dist/rustc-${PKG_VERSION}-${MACHINE_HARDWARE_NAME}-unknown-linux-gnu.tar.xz"
 PKG_LONGDESC="rustc bootstrap compiler"
 PKG_TOOLCHAIN="manual"
+
+case "${MACHINE_HARDWARE_NAME}" in
+  "aarch64")
+    PKG_SHA256="9c847b42b81325d25a9240e33bf03fa8652f5dd321ae90a9a7a58b46bf124b17"
+    PKG_URL="https://static.rust-lang.org/dist/rustc-${PKG_VERSION}-${MACHINE_HARDWARE_NAME}-unknown-linux-gnu.tar.xz"
+    ;;
+  "arm")
+    PKG_SHA256="019a2b9792ee38a30823b96b6d63e5094b92a1dff197ab30b63f1a6568da533e"
+    PKG_URL="https://static.rust-lang.org/dist/rustc-${PKG_VERSION}-${MACHINE_HARDWARE_NAME}-unknown-linux-gnueabihf.tar.xz"
+    ;;
+  "x86_64")
+    PKG_SHA256="a04cf42022d0a5faf01c31082bfb1dde9c38409f0ca6da90a3e40faa03e797ae"
+    PKG_URL="https://static.rust-lang.org/dist/rustc-${PKG_VERSION}-${MACHINE_HARDWARE_NAME}-unknown-linux-gnu.tar.xz"
+    ;;
+esac
+PKG_SOURCE_NAME="rustc-snapshot_${PKG_VERSION}_${ARCH}.tar.xz"

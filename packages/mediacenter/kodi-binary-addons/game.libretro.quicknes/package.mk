@@ -2,9 +2,9 @@
 # Copyright (C) 2016-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="game.libretro.quicknes"
-PKG_VERSION="1.0.0.37-Nexus"
-PKG_SHA256="72c28ec1141360251c9232c28e06720cce287c1e8d8eb98d46cc4d07fcab8844"
-PKG_REV="1"
+PKG_VERSION="1.0.0.43-Nexus"
+PKG_SHA256="307680bd9cfdce8909f0d6c357a550cec0c679babe8caf904d2c3468f1b0f010"
+PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="https://github.com/kodi-game/game.libretro.quicknes"

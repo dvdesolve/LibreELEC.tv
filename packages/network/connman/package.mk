@@ -3,12 +3,12 @@
 # Copyright (C) 2019-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="connman"
-PKG_VERSION="24180d1243bf005c721be6f9d8d6da67bb669c55"
-PKG_SHA256="13299f1dd4b41ef90acfdeb215b2d773b75347694ef0cd5b12cc06bc0ef694e6"
+PKG_VERSION="1cde7a6598a639d1f1eb16f7929f32919172ef10"
+PKG_SHA256="680320f1c3de0c283b2df0d61807cd0ca88e012dc3ec906a0414b20a5866f19d"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.connman.net"
 PKG_URL="https://git.kernel.org/pub/scm/network/connman/connman.git/snapshot/connman-${PKG_VERSION}.tar.gz"
-PKG_DEPENDS_TARGET="toolchain dbus glib iptables iwd readline"
+PKG_DEPENDS_TARGET="autotools:host gcc:host dbus glib iptables iwd readline"
 PKG_LONGDESC="A modular network connection manager."
 PKG_TOOLCHAIN="autotools"
 
@@ -40,7 +40,7 @@ PKG_CONFIGURE_OPTS_TARGET="--srcdir=.. \
                            --disable-stats \
                            --enable-client \
                            --enable-datafiles \
-                           --with-dbusconfdir=/etc \
+                           --with-dbusconfdir=/usr/share \
                            --with-systemdunitdir=/usr/lib/systemd/system \
                            --disable-silent-rules \
                            --disable-wifi \

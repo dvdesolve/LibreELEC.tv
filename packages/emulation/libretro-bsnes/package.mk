@@ -2,8 +2,8 @@
 # Copyright (C) 2023-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="libretro-bsnes"
-PKG_VERSION="82dc02fd51d1e712ee68b147c89a407f1e4f3a64"
-PKG_SHA256="8ecd4eb69fa5857af0cd60aa3b4226bf96a852df50f7dfa7f7d86766b7f92d30"
+PKG_VERSION="c07c116d214a3614794324412086ac102ce4e73d"
+PKG_SHA256="d23e7dcea77c7d5cbf1ac9d9d1fd168cb6d681f62026a39f74175344b5e85100"
 PKG_LICENSE="GPLv3/ISC"
 PKG_SITE="https://github.com/libretro/bsnes"
 PKG_URL="https://github.com/libretro/bsnes-libretro/archive/${PKG_VERSION}.tar.gz"

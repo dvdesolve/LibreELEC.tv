@@ -3,12 +3,12 @@
 # Copyright (C) 2021-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="vulkan-tools"
-PKG_VERSION="1.3.254"
-PKG_SHA256="9d46697d0df39e20950db2f8581b63b3d02ab5dce6b67777b9f7bdf876ae4921"
+PKG_VERSION="1.3.289"
+PKG_SHA256="1b012a16e990d6290822b45925881be650e299f34727c40fc0e8cb8aaed148bb"
 PKG_LICENSE="Apache-2.0"
 PKG_SITE="https://github.com/KhronosGroup/Vulkan-Tools"
 PKG_URL="https://github.com/KhronosGroup/Vulkan-tools/archive/v${PKG_VERSION}.tar.gz"
-PKG_DEPENDS_TARGET="toolchain vulkan-loader glslang:host Python3:host"
+PKG_DEPENDS_TARGET="toolchain volk vulkan-loader glslang:host Python3:host"
 PKG_LONGDESC="This project provides Khronos official Vulkan Tools and Utilities."
 
 configure_package() {
@@ -24,25 +24,27 @@ pre_configure_target() {
   PKG_CMAKE_OPTS_TARGET="-DVULKAN_HEADERS_INSTALL_DIR=${SYSROOT_PREFIX}/usr \
                          -DBUILD_VULKANINFO=ON \
                          -DBUILD_ICD=OFF \
-                         -DINSTALL_ICD=OFF \
                          -DBUILD_WSI_DIRECTFB_SUPPORT=OFF \
                          -DPython3_EXECUTABLE=${TOOLCHAIN}/bin/python3 \
                          -Wno-dev"
 
   if [ "${DISPLAYSERVER}" = "x11" ]; then
     PKG_CMAKE_OPTS_TARGET+=" -DBUILD_CUBE=ON \
+                             -DCOMPILE_CUBE_SHADERS=ON \
                              -DBUILD_WSI_XCB_SUPPORT=ON \
                              -DBUILD_WSI_XLIB_SUPPORT=ON \
                              -DBUILD_WSI_WAYLAND_SUPPORT=OFF \
                              -DCUBE_WSI_SELECTION=XCB"
   elif [ "${DISPLAYSERVER}" = "wl" ]; then
     PKG_CMAKE_OPTS_TARGET+=" -DBUILD_CUBE=ON \
+                             -DCOMPILE_CUBE_SHADERS=ON \
                              -DBUILD_WSI_XCB_SUPPORT=OFF \
                              -DBUILD_WSI_XLIB_SUPPORT=OFF \
                              -DBUILD_WSI_WAYLAND_SUPPORT=ON
                              -DCUBE_WSI_SELECTION=WAYLAND"
   else
     PKG_CMAKE_OPTS_TARGET+=" -DBUILD_CUBE=ON \
+                             -DCOMPILE_CUBE_SHADERS=ON \
                              -DBUILD_WSI_XCB_SUPPORT=OFF \
                              -DBUILD_WSI_XLIB_SUPPORT=OFF \
                              -DBUILD_WSI_WAYLAND_SUPPORT=OFF \

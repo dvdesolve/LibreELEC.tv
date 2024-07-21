@@ -3,12 +3,12 @@
 # Copyright (C) 2018-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="ccache"
-PKG_VERSION="4.8.2"
-PKG_SHA256="3d3fb3f888a5b16c4fa7ee5214cca76348afd6130e8443de5f6f2424f2076a49"
+PKG_VERSION="4.10.1"
+PKG_SHA256="3a43442ce3916ea48bb6ccf6f850891cbff01d1feddff7cd4bbd49c5cf1188f6"
 PKG_LICENSE="GPL"
 PKG_SITE="https://ccache.dev/download.html"
 PKG_URL="https://github.com/ccache/ccache/releases/download/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.xz"
-PKG_DEPENDS_HOST="cmake:host make:host zstd:host"
+PKG_DEPENDS_HOST="cmake:host make:host zstd:host libfmt:host xxHash:host"
 PKG_LONGDESC="A compiler cache to speed up re-compilation of C/C++ code by caching."
 # Override toolchain as ninja is not built yet
 PKG_TOOLCHAIN="cmake-make"
@@ -18,15 +18,15 @@ configure_host() {
   # custom cmake build to override the LOCAL_CC/CXX
   cp ${CMAKE_CONF} cmake-ccache.conf
 
-  echo "SET(CMAKE_C_COMPILER   $CC)"  >> cmake-ccache.conf
-  echo "SET(CMAKE_CXX_COMPILER $CXX)" >> cmake-ccache.conf
+  echo "SET(CMAKE_C_COMPILER   ${CC})"  >> cmake-ccache.conf
+  echo "SET(CMAKE_CXX_COMPILER ${CXX})" >> cmake-ccache.conf
 
   cmake -DCMAKE_TOOLCHAIN_FILE=cmake-ccache.conf \
         -DCMAKE_INSTALL_PREFIX=${TOOLCHAIN} \
         -DENABLE_DOCUMENTATION=OFF \
         -DREDIS_STORAGE_BACKEND=OFF \
-        -DZSTD_FROM_INTERNET=OFF \
         -DENABLE_TESTING=OFF \
+        -DDEPS=SYSTEM \
         ..
 }
 

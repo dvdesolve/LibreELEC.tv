@@ -2,8 +2,8 @@
 # Copyright (C) 2019-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="nghttp2"
-PKG_VERSION="1.54.0"
-PKG_SHA256="20533c9354fbb6aa689b6aa0ddb77f91da1d242587444502832e1864308152df"
+PKG_VERSION="1.62.1"
+PKG_SHA256="2345d4dc136fda28ce243e0bb21f2e7e8ef6293d62c799abbf6f633a6887af72"
 PKG_LICENSE="MIT"
 PKG_SITE="http://www.linuxfromscratch.org/blfs/view/cvs/basicnet/nghttp2.html"
 PKG_URL="https://github.com/nghttp2/nghttp2/releases/download/v${PKG_VERSION}/nghttp2-${PKG_VERSION}.tar.xz"
@@ -13,8 +13,8 @@ PKG_LONGDESC="nghttp2 is an implementation of HTTP/2 and its header compression 
 PKG_CMAKE_OPTS_TARGET="-DENABLE_DOC=OFF \
                        -DENABLE_FAILMALLOC=OFF \
                        -DENABLE_LIB_ONLY=ON \
-                       -DENABLE_SHARED_LIB=ON \
-                       -DENABLE_STATIC_LIB=OFF"
+                       -DBUILD_SHARED_LIBS=ON \
+                       -DBUILD_STATIC_LIBS=OFF"
 
 post_makeinstall_target() {
   rm -r "${INSTALL}/usr/share"
