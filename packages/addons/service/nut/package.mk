@@ -76,4 +76,5 @@ addon() {
   mkdir -p ${ADDON_BUILD}/${PKG_ADDON_ID}
 
   cp -r ${PKG_INSTALL}/storage/.kodi/addons/${PKG_ADDON_ID}/bin ${PKG_INSTALL}/storage/.kodi/addons/${PKG_ADDON_ID}/lib ${PKG_INSTALL}/storage/.kodi/userdata/addon_data/${PKG_ADDON_ID}/share ${ADDON_BUILD}/${PKG_ADDON_ID}/
+  cp ${PKG_INSTALL}/storage/.kodi/userdata/addon_data/${PKG_ADDON_ID}/*.sample ${ADDON_BUILD}/${PKG_ADDON_ID}/share/
 }
